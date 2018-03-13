@@ -26,7 +26,8 @@
   endif
 "}}}
 " {{{ Colors
-  let s:base00=['#1b2b34', '235']
+""  let s:base00=['#1b2b34', '235']
+  let s:base00=['NONE', 'NONE']
   let s:base01=['#343d46', '237']
   let s:base02=['#4f5b66', '240']
   let s:base03=['#65737e', '243']
@@ -44,7 +45,6 @@
   let s:base0F=['#ab7967', '137']
   let s:base10=['#ffffff', '15']
   let s:none=['NONE', 'NONE']
-
 " }}}
 " {{{ Highlight function
 function! <sid>hi(group, fg, bg, attr, attrsp)
@@ -95,7 +95,6 @@ call <sid>hi('Conceal',                    s:base0D, s:base00, '',          '')
 call <sid>hi('Cursor',                     s:base00, s:base05, '',          '')
 call <sid>hi('NonText',                    s:base03, '',       '',          '')
 call <sid>hi('Normal',                     s:base05, s:base00, '',          '')
-call <sid>hi('EndOfBuffer',                s:base05, s:base00, '',          '')
 call <sid>hi('LineNr',                     s:base03, s:base00, '',          '')
 call <sid>hi('SignColumn',                 s:base00, s:base00, '',          '')
 call <sid>hi('StatusLine',                 s:base01, s:base03, '',          '')
@@ -103,7 +102,7 @@ call <sid>hi('StatusLineNC',               s:base03, s:base01, '',          '')
 call <sid>hi('VertSplit',                  s:base00, s:base02, '',          '')
 call <sid>hi('ColorColumn',                '',       s:base01, '',          '')
 call <sid>hi('CursorColumn',               '',       s:base01, '',          '')
-call <sid>hi('CursorLine',                 '',       s:base01, 'NONE',      '')
+call <sid>hi('CursorLine',                 '',       s:base01, '',          '')
 call <sid>hi('CursorLineNR',               s:base00, s:base00, '',          '')
 call <sid>hi('CursorLineNr',               s:base03, s:base01, '',          '')
 call <sid>hi('PMenu',                      s:base04, s:base01, '',          '')
@@ -145,10 +144,10 @@ call <sid>hi('Todo',                       s:base0A, s:base01, '',          '')
 call <sid>hi('Type',                       s:base0A, '',       '',          '')
 call <sid>hi('Typedef',                    s:base0A, '',       '',          '')
 
-call <sid>hi('SpellBad',                   '',       '',       'undercurl', '')
-call <sid>hi('SpellLocal',                 '',       '',       'undercurl', '')
-call <sid>hi('SpellCap',                   '',       '',       'undercurl', '')
-call <sid>hi('SpellRare',                  '',       '',       'undercurl', '')
+call <sid>hi('SpellBad',                   '',       s:base00, 'undercurl', '')
+call <sid>hi('SpellLocal',                 '',       s:base00, 'undercurl', '')
+call <sid>hi('SpellCap',                   '',       s:base00, 'undercurl', '')
+call <sid>hi('SpellRare',                  '',       s:base00, 'undercurl', '')
 
 call <sid>hi('csClass',                    s:base0A, '',       '',          '')
 call <sid>hi('csAttribute',                s:base0A, '',       '',          '')
@@ -197,9 +196,9 @@ call <sid>hi('markdownBold',               s:base0A, '',       s:bold,      '')
 call <sid>hi('markdownCodeDelimiter',      s:base0F, '',       s:italic,    '')
 call <sid>hi('markdownError',              s:base05, s:base00, '',          '')
 
-call <sid>hi('NeomakeErrorSign',           s:base08, s:base00, '',          '')
-call <sid>hi('NeomakeWarningSign',         s:base0A, s:base00, '',          '')
-call <sid>hi('NeomakeInfoSign',            s:base10, s:base00, '',          '')
+call <sid>hi('NeomakeErrorSign',           s:base08, s:base01, '',          '')
+call <sid>hi('NeomakeWarningSign',         s:base0A, s:base01, '',          '')
+call <sid>hi('NeomakeInfoSign',            s:base10, s:base01, '',          '')
 call <sid>hi('NeomakeError',               s:base08, '',       'undercurl', s:base08)
 call <sid>hi('NeomakeWarning',             s:base08, '',       'undercurl', s:base08)
 
@@ -219,6 +218,9 @@ call <sid>hi('phpMemberSelector',          s:base05, '',       '',          '')
 
 call <sid>hi('pythonRepeat',               s:base0E, '',       '',          '')
 call <sid>hi('pythonOperator',             s:base0E, '',       '',          '')
+call <sid>hi('pythonFunctionVars',         s:base0D, '',       '',          '')
+call <sid>hi('pythonBrackets',             s:base0C, '',       '',          '')
+call <sid>hi('pythonClassTag',             s:base0A, '',       '',          '')
 
 call <sid>hi('rubyConstant',               s:base0A, '',       '',          '')
 call <sid>hi('rubySymbol',                 s:base0B, '',       '',          '')
@@ -251,29 +253,20 @@ call <sid>hi('xmlEndTag',                  s:base0C, '',       '',          '')
 " }}}
 
 let g:terminal_color_0=s:base00[0]
-let g:terminal_color_8=s:base00[0]
-
 let g:terminal_color_1=s:base08[0]
-let g:terminal_color_9=s:base08[0]
-
 let g:terminal_color_2=s:base0B[0]
-let g:terminal_color_10=s:base0B[0]
-
 let g:terminal_color_3=s:base0A[0]
-let g:terminal_color_11=s:base0A[0]
-
 let g:terminal_color_4=s:base0D[0]
-let g:terminal_color_12=s:base0D[0]
-
 let g:terminal_color_5=s:base0E[0]
-let g:terminal_color_13=s:base0E[0]
-
 let g:terminal_color_6=s:base0C[0]
-let g:terminal_color_14=s:base0C[0]
-
 let g:terminal_color_7=s:base05[0]
-let g:terminal_color_15=s:base05[0]
-
+let g:terminal_color_8=s:base03[0]
+let g:terminal_color_9=s:base09[0]
+let g:terminal_color_10=s:base01[0]
+let g:terminal_color_11=s:base02[0]
+let g:terminal_color_12=s:base04[0]
+let g:terminal_color_13=s:base06[0]
+let g:terminal_color_14=s:base0F[0]
+let g:terminal_color_15=s:base07[0]
 let g:terminal_color_background=s:base00[0]
 let g:terminal_color_foreground=s:base10[0]
-
